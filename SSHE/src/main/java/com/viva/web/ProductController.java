@@ -22,7 +22,7 @@ public class ProductController {
 	@RequestMapping(value = {"/", "Home"})
 	public String displayHome() {
 		
-		return "Home";
+		return "Login";
 	}
 	
 	
