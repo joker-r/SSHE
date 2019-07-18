@@ -20,7 +20,7 @@
 	
 	<div align="right" style="width: 80%">
 	${initParam.slogan}
-	<a href="Home.jsp">Home</a>
+	<a href="Home">Home</a>
 	</div>
 	
 </header>
