@@ -2,6 +2,7 @@ package com.viva.entity;
 
 import java.lang.annotation.Repeatable;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ import org.hibernate.validator.constraints.Length;
 public class cg_sshe_vas_master {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id",columnDefinition="int(4)")
 	private int id;
 	@Column(name="cpid",length=32)

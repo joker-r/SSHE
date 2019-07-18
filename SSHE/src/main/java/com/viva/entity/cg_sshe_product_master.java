@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name="cg_sshe_product_master")
 public class cg_sshe_product_master {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	@Column(name="product_id",length=32)
