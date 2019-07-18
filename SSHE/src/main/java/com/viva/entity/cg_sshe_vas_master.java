@@ -18,14 +18,13 @@ public class cg_sshe_vas_master {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id")
+	@Column(name="id",columnDefinition="int(4)")
 	private int id;
 	@Column(name="cpid",length=32)
 	private String cpid;
 	@Column(name="cpname",length=32)
 	private String cpname;
-	@Column(columnDefinition = "TINYINT")
-	@Type(type="org.hibernate.type.NumericBooleanType")
+	@Column(columnDefinition = "TINYINT(1)")
 	private boolean cp_status = true;
 	
 	@Column(name="cp_list",columnDefinition = "TEXT")
