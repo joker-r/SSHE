@@ -10,8 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-import org.hibernate.validator.constraints.Length;
+
 
 @Entity
 @Table(name="cg_sshe_vas_master")
@@ -28,8 +27,8 @@ public class cg_sshe_vas_master {
 	@Column(columnDefinition = "TINYINT(1)")
 	private boolean cp_status = true;
 	
-	@Column(name="cp_list",columnDefinition = "TEXT")
-	private String cp_list;
+	@Column(name="ip_list",columnDefinition = "TEXT")
+	private String ip_list;
 	@Column(name="password",length=32)
 	private String password;
 	@Column(name="last_modify_date",columnDefinition="timestamp")
@@ -60,11 +59,11 @@ public class cg_sshe_vas_master {
 	public void setCp_status(boolean cp_status) {
 		this.cp_status = cp_status;
 	}
-	public String getCp_list() {
-		return cp_list;
+	public String getIp_list() {
+		return ip_list;
 	}
-	public void setCp_list(String cp_list) {
-		this.cp_list = cp_list;
+	public void setIp_list(String cp_list) {
+		this.ip_list = cp_list;
 	}
 	public String getPassword() {
 		return password;
