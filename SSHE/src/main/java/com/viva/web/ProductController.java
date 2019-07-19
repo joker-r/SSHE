@@ -13,19 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 
-@Controller
+
 public class ProductController {
     
 	
 	
 	
-	@RequestMapping(value = {"/", "Home"})
-	public String displayHome() {
-		
-		return "Login";
+	
 	}
 	
 	
 
 
-}
+

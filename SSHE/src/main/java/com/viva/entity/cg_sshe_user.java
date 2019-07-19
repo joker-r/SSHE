@@ -11,20 +11,13 @@ import javax.persistence.Table;
 public class cg_sshe_user {
 
 	@Id
-	@Column(name="id",columnDefinition="int(3)")
-	private int id;
 	@Column(name="username",length=32)
 	private String username;
 	@Column(name="password",length=32)
 	private String password;
 	@Column(name="usertype",columnDefinition="int(3)")
 	private int usertype;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public String getUsername() {
 		return username;
 	}

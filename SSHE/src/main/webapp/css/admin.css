@@ -61,16 +61,6 @@ color:black;
     align-content:center;
 }
 
-table{
-width: 50%;
-height: 80vh;
-}
-
-tbody,td{
-    
-    font-weight: 500;
-    padding: 10px;
-}
 
 .dashboard
 {
