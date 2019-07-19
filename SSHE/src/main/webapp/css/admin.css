@@ -1,0 +1,80 @@
+.adminnav{
+  width: 255px;
+  height: 80vh;
+  margin-top: 5px;
+  margin-left: 20px;
+  background:#E71538 ;
+  padding: 8px 0;
+  text-align: left;
+ 
+}
+
+.welcomeuser{
+    background-color: #E71538;
+    color:white;
+    margin-left: 20px;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+
+.adminnav a{
+color: white;
+font-weight: bold;
+margin: 20px;
+}
+
+.admin a:hover{
+
+color:black;
+
+}
+.container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top:10px;
+}
+
+.frame{
+    padding-top:5px;
+    height:80vh;
+    padding-left: 10px;
+    
+}
+
+.frame iframe{
+    align-content: flex-start;
+    width:900px;
+    height:80vh; 
+}
+
+.welcomeuser a
+{
+    padding-right: 5px;
+    color:white;
+}
+
+.userdetails{
+    border: 3px solid #E71538;
+    align-content:center;
+}
+
+table{
+width: 50%;
+height: 80vh;
+}
+
+tbody,td{
+    
+    font-weight: 500;
+    padding: 10px;
+}
+
+.dashboard
+{
+    background: grey;
+}
+
+
