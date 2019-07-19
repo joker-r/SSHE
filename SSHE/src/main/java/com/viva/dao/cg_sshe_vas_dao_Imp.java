@@ -42,7 +42,7 @@ public class cg_sshe_vas_dao_Imp implements cg_sshe_vas_dao {
 
 
 	@Override
-	public cg_sshe_vas_master getCpById(int cpid) {
+	public cg_sshe_vas_master getCpById(String cpid) {
 		// TODO Auto-generated method stub
 		String hql="from cg_sshe_vas_master where cpid=:ecpid";
 		Query qry=em.createQuery(hql);
@@ -87,6 +87,18 @@ public class cg_sshe_vas_dao_Imp implements cg_sshe_vas_dao {
 	public int ipValidation(String cpid, String ip) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+
+	@Override
+	public cg_sshe_vas_master getCpBOpcoId(int opcoid) {
+		// TODO Auto-generated method stub
+				String hql="from cg_sshe_vas_master where opcoid=:eopcoid";
+				Query qry=em.createQuery(hql);
+				qry.setParameter("eopcoid", opcoid);
+				List<cg_sshe_vas_master> lst=qry.getResultList();
+				cg_sshe_vas_master cp=lst.get(0);
+				return cp;
 	}
 
 
