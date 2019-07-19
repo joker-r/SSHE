@@ -32,6 +32,66 @@ public class cg_sshe_tenant_details {
 	private String circle;
 	@Column(name="status",columnDefinition="int(5) default '0'")
 	private int status;
+	public int getTenantid() {
+		return tenantid;
+	}
+	public void setTenantid(int tenantid) {
+		this.tenantid = tenantid;
+	}
+	public String getTenantname() {
+		return tenantname;
+	}
+	public void setTenantname(String tenantname) {
+		this.tenantname = tenantname;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getTimezone() {
+		return timezone;
+	}
+	public void setTimezone(String timezone) {
+		this.timezone = timezone;
+	}
+	public String getOperator() {
+		return operator;
+	}
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+	public String getCircle() {
+		return circle;
+	}
+	public void setCircle(String circle) {
+		this.circle = circle;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getMdn_min() {
+		return mdn_min;
+	}
+	public void setMdn_min(int mdn_min) {
+		this.mdn_min = mdn_min;
+	}
+	public int getMdn_max() {
+		return mdn_max;
+	}
+	public void setMdn_max(int mdn_max) {
+		this.mdn_max = mdn_max;
+	}
+	public int getCountrycode() {
+		return countrycode;
+	}
+	public void setCountrycode(int countrycode) {
+		this.countrycode = countrycode;
+	}
 	@Column(name="mdn_min",columnDefinition="int(3) default '10'")
 	private int mdn_min;
 	@Column(name="mdn_max",columnDefinition="int(3) default '10'")
