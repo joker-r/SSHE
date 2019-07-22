@@ -41,7 +41,7 @@ public class AddController {
 		 @RequestParam(value="txtcountry")String country,
 		 @RequestParam(value="txtoperator")String operator,
 		 @RequestParam(value="txtcircle")String circle,
-		 @RequestParam(value="txtcplist")String cp_list,Model model) {
+		 Model model) {
 	 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	 cg_sshe_vas_master cp=new cg_sshe_vas_master();
 	 String tenantname=country+"_"+operator+"_"+circle;
@@ -57,6 +57,7 @@ public class AddController {
 	 model.addAttribute("CP/SP added successfully");
 	 return "Techophome";
  }
+ @RequestMapping(value="addProduct",method=RequestMethod.POST)
  public String addProduct(
 		 @RequestParam(value="txtproductid") String productid,
 		 @RequestParam(value="txtproductname") String productname,

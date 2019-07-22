@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Subscriber id="96560053297">
+	:
+	<info name="imsi" value="419031009215679" />
+	:
+	<info name="msisdn" value="96560053297" />
+	:
+	<info name="imei" value="35729308511268" />
+	:
+	<info name="modelid" value="wyPspr" />
+	:
+	<info name="modelname"
+		value="Hmd Global Oy TA-1010/NOKIA105 SS/Nokia 105/Nokia 105 SS" />
+	:
+	<info name="group" value="" />
+	:
+	<info name="language" value="" />
+	:
+	<info name="lastotatime" value="" />
+	:
+	<info name="detected" value="2018-11-25 08:39:23.295804" />
+	:
+</Subscriber>

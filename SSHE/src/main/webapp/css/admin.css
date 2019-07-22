@@ -1,70 +1,203 @@
-.adminnav{
-  width: 255px;
-  height: 80vh;
-  margin-top: 5px;
-  margin-left: 20px;
-  background:#E71538 ;
-  padding: 8px 0;
-  text-align: left;
- 
-}
+
+
+/* Welcome Header */
+
 
 .welcomeuser{
     background-color: #E71538;
     color:white;
-    margin-left: 20px;
+    margin:20px;
     text-align: left;
     font-weight: bold;
     padding-left: 10px;
+    padding-right: 10px;
+    padding: 2px;
+    font-family: 'lato', sans-serif;
 }
-
-
-.adminnav a{
-color: white;
-font-weight: bold;
-margin: 20px;
-}
-
-.admin a:hover{
-
-color:black;
-
-}
-.container1{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top:10px;
-}
-
-.frame{
-    padding-top:5px;
-    height:80vh;
+#welcome{
     padding-left: 10px;
-    
-}
-
-.frame iframe{
-    align-content: flex-start;
-    width:900px;
-    height:80vh; 
 }
 
 .welcomeuser a
 {
     padding-right: 5px;
     color:white;
-}
-
-.userdetails{
-    border: 3px solid #E71538;
-    align-content:center;
+    font-weight: bold;
+    font-family: 'lato', sans-serif;
 }
 
 
-.dashboard
+
+
+.container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top:5px;
+    margin: 20px;
+}
+
+
+/* Admin Navigation Bar */
+
+#adminnav {
+    width: 255px;
+    height: 80vh;
+    
+}
+
+.admin-sidebarnav{
+    width: 255px;
+    list-style: none;
+}
+ 
+
+
+.admin-sidebarnav li a{
+    text-decoration: none;
+    color: #282828;
+    font-weight: bold;
+    font-size: 18px;
+    width:255px;
+    line-height: 50px;
+    font-family: 'lato', sans-serif;
+    width: 255px;
+    
+    
+
+}
+.admin-sidebarnav li{
+ width:255px;
+ margin-left:-40px;
+ text-align: center;
+ border:1px solid #dcdcdc;
+
+}
+
+.admin-sidebarnav a:hover,
+.admin-sidebarnav a:active
+.admin-sidebarnav a:hover
 {
-    background: grey;
+text-decoration: none;
+}
+    
+#adminnav a:hover{
+color:#E71538;
 }
 
+.admin-dashboard {
+
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+    color: white;
+    font-weight: 500;
+    background: #E71538;
+    text-align: center;
+    border:1px solid #dcdcdc;
+    }
+
+
+#adminframe iframe{
+    align-content: flex-start;
+    width:1050px;
+    height:500px;
+   
+}
+
+/* AddUser Page Formatting */
+
+.adduserdetails{
+    align-content:center;
+    height:300px;
+    margin: 50px;
+}
+
+#addusertable{
+    width: 50%;
+    height: 250px;
+    box-shadow: 5px 5px 6px 2px grey;
+    margin:10px;
+    border-radius:20px ;
+}
+
+#addusertable > tbody{
+    font-weight: 600;
+    font-family: 'lato',sans-serif;
+    padding: 30px;
+}
+
+#addusertable > td{
+    padding: 10px;
+
+}
+
+
+/* Subscription Window */
+
+.subscription-window{
+    align-content: center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: inline;
+    padding:20px;
+    background: rgba(255, 255, 255, 0.603);
+    border-radius: 10px;
+    margin:auto;
+    
+}
+
+.container2
+{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#subdetails {   
+      margin: auto;
+    }
+
+
+#subscribe, #resendotp {
+    color: white;
+    margin:10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100px;
+    padding: 2px 2px;
+    }
+
+
+  /* OTP Page */
+#otpfield {
+      width:120px;
+      padding:2px 2px;
+      text-align: center;
+      margin: auto;
+    }
+
+.cpuser{
+    align-content: center;
+    
+}
+  /* Add Business User */
+#cpusertable {
+      width: 600px;
+      box-shadow: 5px 5px 6px 2px grey;
+      border-radius:20px ;
+      top:-150px;    
+      z-index: 100;
+      height: 300px;
+    }
+
+
+#cpusertable > tbody{
+      font-weight: 600;
+      text-transform: uppercase;
+}
 

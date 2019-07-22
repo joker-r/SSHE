@@ -1,5 +1,5 @@
-<%@ include file="HeadSection.jsp" %>
 
+<%@ include file="HeadSection.jsp" %>
 <div class="welcomeuser">
     <span id="welcome">Welcome Admin</span>
     <span id="logout" style="float: right;">
@@ -8,34 +8,44 @@
 </div>
 
 <div class="container1">
-
-
-    <div id="dashboard"><p>DASHBOARD</p></div>
     
-    <div class="adminnav" >
-        <a href="#adduser" onclick='enableIframe()'>ADD USER</a><br/>
-        <a href="#viewuser">VIEW USER</a><br/>
+
+    <div id="adminnav">
+        <ul class="admin-sidebarnav">   
+        <li class="admin-dashboard" >Dashboard</li>
+        <li><a  onclick='enableIframe("add")'>Add User</a></li>
+        <li><a  onclick='enableIframe("view")'>View User</a></li>
+        </ul>        
     </div>
 
-    <div class="frame">
-        <iframe src ="C:\Users\comviva\Desktop\AddUser.html" name="function" id="iframe" style="display: none;" frameborder="0">
-        
+    <div id="adminframe">
+       <!--  <iframe  src ="adduser.jsp"  id="iframe1" style="display: none;" frameborder="0">
         </iframe>
+        <iframe  src ="ViewUSer.html" name="frame2" id="iframe2" style="display: none;" frameborder="0">
+        </iframe> -->
     </div>
-
-    
 
 </div>
 <script>
 
-  function enableIframe(){
-
-      console.log("hello");
-    var doc = document.getElementById("iframe");
-  doc.style.display="block";
+  function enableIframe(ch){ 
+    // var doc = document.getElementById("iframe1");
+    // doc.style.display="block";
+    // var doc2 = document.getElementById("iframe2");
+    console.log(ch);
+    if(ch=="add")
+    {
+    var dd1 = document.getElementById("adminframe");
+    dd1.innerHTML="<iframe  src='getadduser'  id='iframe1' frameborder='0'></iframe>";
+    }
+    else
+    {
+    var dd1 = document.getElementById("adminframe");
+    dd1.innerHTML="<iframe  src='ViewUser.html'  id='iframe2' frameborder='0'></iframe>";
+    } 
 
   }
-  
+
   
 
 </script>
