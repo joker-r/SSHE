@@ -6,10 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.viva.entity.cg_sshe_notify_url_master;
 import com.viva.entity.cg_sshe_product_master;
 import com.viva.entity.cg_sshe_vas_master;
-
+@Repository("cgproductdao")
+@Transactional
 public class cg_sshe_product_dao_Imp implements cg_sshe_product_dao {
 	
 	@PersistenceContext

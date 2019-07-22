@@ -15,7 +15,6 @@ public cg_sshe_vas_master getCpBOpcoId(int opcoid);
 public List<cg_sshe_vas_master> getCp();
 public int cpValidation(String cpid,String password);
 public int ipValidation(String cpid,String ip);
- 
 
 
 

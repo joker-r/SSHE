@@ -1,9 +1,6 @@
 <%@include file="HeadSection.jsp"%>
 
 
-<div style="height: 20px; background-color: #E31837;">Welcome</div>
-<div style="height: 30px; background-color: white;"></div>
-
 <form action="Login" method="POST">
 <div align="center" class="mx-auto" style="border: 2px solid #e41937; border-radius: 25px; height: 220px;
                                         width: 30%; padding-right: 10px;">
@@ -61,8 +58,9 @@
                                         </tbody>
 								        </table>
                                     </div>
-                                    						
+										
 </form>									
 </body>
 </html>										
-						
+	
+										

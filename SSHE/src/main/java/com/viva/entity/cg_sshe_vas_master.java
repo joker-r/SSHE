@@ -10,7 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="cg_sshe_vas_master")

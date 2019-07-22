@@ -1,14 +1,13 @@
 package com.viva.entity;
 
 import javax.persistence.Column;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name=" cg_sshe_flowwise_details")
-public class cg_sshe_flowwise_details {
+public class cp_sshe_flowwise_details {
 	@Id
 	@Column(name="opcoid",columnDefinition="int(3)")
 	private int opcoid;
