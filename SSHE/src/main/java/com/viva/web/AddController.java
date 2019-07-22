@@ -97,6 +97,7 @@ public class AddController {
 	     product.setProduct_id(productid);
 	     product.setProduct_name(productname);
 	     product.setLast_modify_date(timestamp.toString());
+	     product.setOpcoid(opcoid);
 	     dao2.addProduct(product);
 	     int id_product=dao2.getProductById(productid).getId();
 	     int id_vas=dao.getCpBOpcoId(opcoid).getId();

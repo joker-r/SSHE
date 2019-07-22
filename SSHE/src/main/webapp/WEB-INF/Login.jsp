@@ -15,7 +15,7 @@
                                                 <td colspan="2" style="width: 100%; border-bottom: 4px solid #e41937; color: #0075A1;
                                                     font-size: 26px; font-family: Segoe UI,arial; padding-bottom: 5px; margin-bottom: 20px;
                                                     padding-left: 20px; text-align: left;">
-                                                    Log In
+                                                    Log In 
                                                 </td>
                                             </tr>
                                             <tr style="">

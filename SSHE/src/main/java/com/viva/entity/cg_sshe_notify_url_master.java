@@ -2,6 +2,8 @@ package com.viva.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 @Table(name="cg_sshe_notify_url_master")
 public class cg_sshe_notify_url_master {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name=" NOTIFY_ID",columnDefinition="int(4)")
 	private int NOTIFY_ID;
 	@Column(name="cpid", columnDefinition="int(4)")

@@ -39,7 +39,7 @@ public class FlowController {
 				if (usertype == 0) {
 					page = "AdminHome";
 				} else if (usertype == 1) {
-					page = "TechOps";
+					page = "TechOpsHome";
 				} else {
 					page = "Business";
 				}
