@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.viva.dao.cg_sshe_notify_url_dao;
 import com.viva.dao.cg_sshe_product_dao;
 import com.viva.dao.cg_sshe_tenant_dao;
+import com.viva.dao.cg_sshe_user_dao;
 import com.viva.dao.cg_sshe_vas_dao;
 import com.viva.entity.cg_sshe_notify_url_master;
 import com.viva.entity.cg_sshe_product_master;
+import com.viva.entity.cg_sshe_user;
 import com.viva.entity.cg_sshe_vas_master;
 
 @Controller
@@ -27,10 +29,31 @@ public class AddController {
 	
 	@Autowired
 	private cg_sshe_notify_url_dao dao3;
+	
+	@Autowired
+	private cg_sshe_user_dao dao4;
+	
  @RequestMapping(value="addform")
  public String displayAddCp() {
 	 return "AddCp";
  }
+ 
+ @RequestMapping(value="adduser",method=RequestMethod.POST)
+ public String addCp(
+		 @RequestParam(value="username")String username,
+		 @RequestParam(value="password")String password,
+		 @RequestParam(value="usertype")int usertype,
+		 Model model) {
+	 cg_sshe_user user=new cg_sshe_user();
+	 user.setUsername(username);
+	 user.setPassword(password);
+	user.setUsertype(usertype);
+	dao4.addUser(user);
+	model.addAttribute("User Added Successfully");
+	
+	 return "AdminHome";
+ }
+ 
  @RequestMapping(value="addCp",method=RequestMethod.POST)
  public String addCp(
 		 @RequestParam(value="txtcpid")String cpid,
