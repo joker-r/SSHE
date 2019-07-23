@@ -42,7 +42,7 @@ public class APIController {
 	    }
 
 	
-	@RequestMapping(value ="getHE",method = RequestMethod.POST)
+	@RequestMapping(value ="getHE",method = RequestMethod.GET)
 	public String displayHome(@RequestParam("productId") String productID,
 			@RequestParam("pName") String pName,
 			@RequestParam("CpId") String CpId,
@@ -106,7 +106,7 @@ public class APIController {
 		int opcoid = (int)model.asMap().get("opcoId");
 		int countrycode=tenantdao.getCountryCode(opcoid);
 		request.setAttribute("countrycode",countrycode);
-		return "wifipage";
+		return "Subscription";
 	}
 	
 	@RequestMapping(value ="/mobileflow",method = RequestMethod.GET)

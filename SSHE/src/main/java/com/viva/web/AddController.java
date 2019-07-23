@@ -82,8 +82,8 @@ public class AddController {
 	 cp.setLast_modify_date((timestamp).toString());
 	 cp.setIp_list(ip_list);
 	 dao.addCp(cp);
-	 model.addAttribute("CP/SP added successfully");
-	 return "Techophome";
+	 model.addAttribute("msg","CP/SP added successfully");
+	 return "success";
  }
  @RequestMapping(value="addProduct",method=RequestMethod.POST)
  public String addProduct(
@@ -113,8 +113,8 @@ public class AddController {
 	     notify.setAPPEND_QUEST_FLAG(1);
 	     notify.setOpcoid(opcoid);
 	     dao3.addNotifyUrl(notify);
-	     model.addAttribute("Product Added Successfully");
+	     model.addAttribute("msg","Product Added Successfully");
 	     
-	     return "Techophome";
+	     return "success";
  }
 }
