@@ -42,16 +42,21 @@ public class AddController {
  public String addCp(
 		 @RequestParam(value="username")String username,
 		 @RequestParam(value="password")String password,
-		 @RequestParam(value="usertype")int usertype,
+		 @RequestParam(value="usertype")String usertype,
 		 Model model) {
 	 cg_sshe_user user=new cg_sshe_user();
+	 int utype=0;
+	 if(usertype.equalsIgnoreCase("Techops"))
+	 {
+		 utype=1;
+	 }
 	 user.setUsername(username);
 	 user.setPassword(password);
-	user.setUsertype(usertype);
+	user.setUsertype(utype);
 	dao4.addUser(user);
-	model.addAttribute("User Added Successfully");
+	model.addAttribute("msg","User Added Successfully");
 	
-	 return "AdminHome";
+	 return "success";
  }
  
  @RequestMapping(value="addCp",method=RequestMethod.POST)

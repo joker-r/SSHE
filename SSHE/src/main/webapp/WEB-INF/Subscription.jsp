@@ -5,9 +5,10 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link href="format.css" rel="stylesheet">
+        <link href="css/admin.css" rel="stylesheet">
         <style>
             body{
-                background-image:url("contact.jpg");
+                background-image:url("/Photos/contact.jpg");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;

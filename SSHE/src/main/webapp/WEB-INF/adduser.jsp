@@ -22,11 +22,7 @@
             <tr>
                 <td>Usertype</td>
                 <td>
-                    <select style="width: 200px" name="usertype">
-                        <option value="" >Choose Usertype</option>
-                        <option value="1">TechOps User</option>
-                        <option value="2">Business User</option>
-                    </select>
+                    <input type="text" name="usertype" value="Techops" readonly>
                 </td>
             </tr>
             <tr>
