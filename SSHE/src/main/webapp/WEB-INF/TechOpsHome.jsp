@@ -23,7 +23,7 @@
     <div id="adminframe">
         <!-- <iframe  src ="AddProduct.html" name="frame1" id="iframe1" style="display: none;" frameborder="0">
         </iframe>
-        <iframe  src ="AddBusinessUser.html" name="frame2" id="iframe2" style="display: none;" frameborder="0">
+        <iframe  src ="getaddbusinessuser" name="frame2" id="iframe2" style="display: none;" frameborder="0">
         </iframe>
         <iframe  src ="EditBusinessUser.html" name="frame3" id="iframe3" style="display: none;" frameborder="0">
         </iframe> -->
@@ -45,7 +45,7 @@
     else if(ch=="add")
     {
     var dd2 = document.getElementById("adminframe");
-    dd2.innerHTML="<iframe src='AddBusinessUser.html' id='iframe2' frameborder='0'></iframe>";
+    dd2.innerHTML="<iframe src='getaddbusinessuser' id='iframe2' frameborder='0'></iframe>";
     }    
     else
     {

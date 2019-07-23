@@ -1,9 +1,6 @@
 package com.viva.web;
 
 
-import java.util.ArrayList;
-
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,7 +15,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.viva.dao.cg_sshe_notify_url_dao;
 import com.viva.dao.cg_sshe_tenant_dao;
-import com.viva.dao.cg_sshe_user_dao;
 import com.viva.dao.cg_sshe_vas_dao;
 import com.viva.service.ImsiService;
 
@@ -37,7 +33,8 @@ public class APIController {
 	@Autowired
 	private cg_sshe_notify_url_dao notifydao;
 
-	 private HttpServletRequest request;
+	@Autowired
+	private HttpServletRequest request;
 
 	    @Autowired
 	    public void setRequest(HttpServletRequest request) {

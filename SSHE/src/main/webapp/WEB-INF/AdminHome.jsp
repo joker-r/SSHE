@@ -21,7 +21,7 @@
     <div id="adminframe">
        <!--  <iframe  src ="adduser.jsp"  id="iframe1" style="display: none;" frameborder="0">
         </iframe>
-        <iframe  src ="ViewUSer.html" name="frame2" id="iframe2" style="display: none;" frameborder="0">
+        <iframe  src ="ViewUser.jsp" name="frame2" id="iframe2" style="display: none;" frameborder="0">
         </iframe> -->
     </div>
 
@@ -41,7 +41,7 @@
     else
     {
     var dd1 = document.getElementById("adminframe");
-    dd1.innerHTML="<iframe  src='ViewUser.html'  id='iframe2' frameborder='0'></iframe>";
+    dd1.innerHTML="<iframe  src='getviewuser'  id='iframe2' frameborder='0'></iframe>";
     } 
 
   }
