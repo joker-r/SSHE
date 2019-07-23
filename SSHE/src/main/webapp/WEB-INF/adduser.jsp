@@ -30,7 +30,7 @@
                 </td>
             </tr>
             <tr>
-                <td><button type="button" class="btn btn-danger">ADD </button></td>
+                <td><input type="submit" value="ADD" class="btn btn-danger"></td>
             </tr>
         </tbody>
     </table>
