@@ -19,7 +19,7 @@
     <div class="container2">
     <div class="subscription-window">
     <div><p>You will be subscribed on your mobile number below</p></div>
-       <div id="subdetails"><form action="#">
+       <div id="subdetails"><form action="OTPPage">
             <input type="tel" name="countrycode" value="${countrycode}" readonly>
             <input type="tel" name="msisdn" placeholder="9876543210"><br>
             <input id="subscribe" type="submit" class="btn btn-primary" value="SUBSCRIBE" style="padding-top: 2px">

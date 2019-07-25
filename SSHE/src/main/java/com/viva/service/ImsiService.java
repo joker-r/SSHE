@@ -26,7 +26,7 @@ public class ImsiService {
 	    public String getImsiMsisdn(String imsi) {
 	    	RestTemplate restTemplate = new RestTemplate();
 	    	//System.out.println(imsiUrl);
-	    	String url="http://localhost:8085/xmlTemplate.xml";
+	    	String url="http://localhost:8085/IMSITemplate.xml";
 	    	//	String url=imsiUrl+"?IMSI="+imsi;
 	    String resp = 
 	          restTemplate.getForObject(url, String.class);

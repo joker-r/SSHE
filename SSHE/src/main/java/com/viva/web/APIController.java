@@ -3,6 +3,8 @@ package com.viva.web;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,7 @@ import com.viva.dao.cg_sshe_notify_url_dao;
 import com.viva.dao.cg_sshe_tenant_dao;
 import com.viva.dao.cg_sshe_vas_dao;
 import com.viva.service.ImsiService;
+import com.viva.service.OTPService;
 
 
 
@@ -71,7 +74,7 @@ public class APIController {
 		if(cpvalidation_result==0||ipvalidation_result==0)
 		{
 			model.addAttribute("CP Invalid");
-			return "ErroPage";
+			return "ErrorPage";
 		}
 		else
 		{
@@ -101,13 +104,78 @@ public class APIController {
 	}
 	
 	@RequestMapping(value ="/wifipage",method = RequestMethod.GET)
-	public String displayWifi(HttpServletRequest request,Model model)
+	public String displayWifi(HttpServletRequest request,Model model,HttpSession session)
 	{
 		int opcoid = (int)model.asMap().get("opcoId");
 		int countrycode=tenantdao.getCountryCode(opcoid);
 		request.setAttribute("countrycode",countrycode);
+	   session.setAttribute("transID", (String)model.asMap().get("transID"));
+	   session.setAttribute("CpId", (String)model.asMap().get("CpId"));
+	   session.setAttribute("CpPwd", (String)model.asMap().get("CpPwd"));
+	   session.setAttribute("productId", (String)model.asMap().get("productId"));
+	   session.setAttribute("opcoId",opcoid);
 		return "Subscription";
 	}
+	
+	@RequestMapping(value ="/OTPPage",method = RequestMethod.GET)
+	public String displayOTP(@RequestParam("msisdn") String msisdn,
+			HttpServletRequest request,Model model,HttpSession session)
+	{
+		
+		String transID=(session.getAttribute("transID").toString());
+		String CpId=(session.getAttribute("CpId").toString());
+		String CpPwd=(session.getAttribute("CpPwd").toString());
+		System.out.println(transID);
+		OTPService otpservice=new OTPService();
+		String otpresult=otpservice.getOTPGenerate(msisdn, transID,CpId,CpPwd);
+		session.setAttribute("otpresult",otpresult);
+		session.setAttribute("msisdn", msisdn);
+		
+		
+		return "OTP";
+	}
+	@RequestMapping(value ="/OTPValidate",method = RequestMethod.GET)
+	public String validateOTP(@RequestParam("otp") int otp,
+			HttpServletRequest request,Model model,HttpSession session)
+	{
+		
+		String CpId=(session.getAttribute("CpId").toString());
+		String CpPwd=(session.getAttribute("CpPwd").toString());
+		String msisdn=(session.getAttribute("msisdn").toString());
+		String productId=(session.getAttribute("productId").toString());
+		int opcoId=Integer.parseInt((session.getAttribute("opcoId").toString()));
+		
+		OTPService otpservice=new OTPService();
+		String result=otpservice.getOTPValidate(msisdn,CpId,CpPwd,otp);
+		
+		if(result.equalsIgnoreCase("SUCCESS"))
+		{
+			String callbackurl=notifydao.callBackUrl(productId, CpId, opcoId);
+			callbackurl =callbackurl+"msisdn="+msisdn;
+			session.setAttribute("callbackurl", callbackurl);
+			System.out.println(callbackurl);
+	        return "redirect:/callback";
+		}
+		else
+		{
+			return "ErrorPage";
+		}
+		
+		
+		
+	}
+	
+	
+	@RequestMapping(value ="/callback",method = RequestMethod.GET)
+	public RedirectView callback(HttpServletRequest request,Model model,HttpSession session)
+	{
+	
+		String callbackurl=(session.getAttribute("callbackurl").toString());
+		RedirectView redirectView = new RedirectView();
+	    redirectView.setUrl(callbackurl);
+	    return redirectView;
+	}
+	
 	
 	@RequestMapping(value ="/mobileflow",method = RequestMethod.GET)
 	public RedirectView mobileFlow(HttpServletRequest request,Model model)
