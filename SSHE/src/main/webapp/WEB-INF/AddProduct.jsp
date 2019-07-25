@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+       <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="css/admin.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/admin.css" rel="stylesheet">
+    <link href="format.css" rel="stylesheet" >
+    
 <script >
 function getOperator(country)
 {
@@ -108,15 +109,65 @@ function getCircle(operator)
 
 	        
 	 }
+	 
+function getCPID(circle)
+{
+	var country=document.getElementById("country").value;
+	var operator=document.getElementById("operator").value;
+	 var URL = "getcpid?country="+country+"&operator="+operator+"&circle="+circle;
+	 console.log(URL);
+	 var xmlhrrp;
+
+	 if (window.XMLHttpRequest) {
+
+	 xmlhttp = new XMLHttpRequest();
+
+	 } else {
+
+	 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+	 }
+
+	 xmlhttp.onreadystatechange = function() {
+	 if (this.readyState == 4 && this.status == 200) {
+	       var data = xmlhttp.responseText;
+	      
+	 console.log("cpid list"+data);
+	 $('#cpid').empty();
+	 if(data==''){
+	     console.log("No data for CPID.");
+	 }else{
+	 /* data=data.split(','); */
+	 console.log(data);
+	 $('#cpid').append('<option value="'+data.trim()+'">'+data.trim()+'</option>');
+	 console.log("list value"+data);
+	 
+	 }
+	  if($('#circle').val()!='select'){
+	 $('#cpid').append("<option value='select'>select</option>");
+	 $('#cpid').val('select');
+	 } 
+
+	 }
+	 };
+
+	 xmlhttp.open("GET", URL, true);
+
+	 xmlhttp.send();
+
+	        
+	 }
 	
 
 </script>
+    
 </head>
 <body>
-<form action="addCp" method="POST">
+<form action="addProduct" method="POST">
     <table class="col-md-5 mx-auto" id="cpusertable" cellpadding='15px' cellspacing='10px' >
         <tbody id="addbusertb" align="center">
-           <tr>
+           
+            <tr>
            	<td>Country</td>
            	<td>
            		<select id="country" onchange="getOperator(this.value)" name="txtcountry">
@@ -140,23 +191,36 @@ function getCircle(operator)
            <tr>
            <td>Circle</td>
            	<td>
-           		<select id="circle" name="txtcircle">
+           		<select id="circle" name="txtcircle" onchange="getCPID(this.value)">
            		<option value="0">Select Circle</option>
            		</select>
            	</td>
            </tr><br>
-           <tr><td>CP ID</td><td><input type="text" required name="txtcpid"></td></tr><br>
-           <tr><td>CP Name</td><td><input type="text" required name="txtcpname"></td></tr><br>
-           <tr><td>CP Password</td><td><input type="password" required name="txtpassword"></td></tr><br>
-           <tr><td>CP Status</td><td><input type="radio" required name="txtcpstatus"value="1" > Active     
-                    <input type="radio" required name="txtcpstatus" value="0"> Deactive</td></tr><br>
-           <tr><td>IP List</td><td><input type="text" required name="txtiplist"></td></tr><br>
-           <tr><td colspan="2"><input  type="submit" class="btn btn-danger" value="ADD"></td></tr>
+
+           <tr><td>CP ID</td>
+            <td>
+           		<select id="cpid" name="txtcpid">
+           		<option value="0">Select CP ID</option>
+           		</select>
+           	</td>
+            </tr><br>
+           <tr><td>Product ID</td>
+            <td><input type="text" required name="txtproductid"></td>
+            </tr><br>
+           <tr><td>Product Name</td>
+            <td><input type="text" required name="txtproductname"></td>
+            </tr><br>
+           <tr><td>Notify URL</td>
+            <td><input type="text" required name="txturl"></td>
+            </tr><br>
+          
+           <tr><td colspan="2"><input type="submit" class="btn btn-danger" value="ADD"></td></tr>
         </tbody>
         </table>
 
                                                             
-</form>									
+</form>	
+
+
 </body>
 </html>
-

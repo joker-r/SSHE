@@ -40,7 +40,7 @@
     if(ch=="addprod")
     {
     var dd1 = document.getElementById("adminframe");
-    dd1.innerHTML="<iframe src='AddProduct.html' id='iframe1' frameborder='0'></iframe>";
+    dd1.innerHTML="<iframe src='getaddproduct' id='iframe1' frameborder='0'></iframe>";
     }
     else if(ch=="add")
     {
