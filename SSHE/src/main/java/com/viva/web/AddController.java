@@ -47,7 +47,12 @@ public class AddController {
 		 @RequestParam(value="username")String username,
 		 @RequestParam(value="password")String password,
 		 @RequestParam(value="usertype")String usertype,
-		 Model model) {
+		 Model model,HttpSession session) {
+	 if(session.getAttribute("username")==null)
+	 {
+		 model.addAttribute("msg","Invalid Request.Please Login");
+		 return "Login";
+	 }
 	 cg_sshe_user user1=dao4.getUser(username);
 	 if(user1!=null)
 	 {

@@ -69,7 +69,7 @@ public class cg_sshe_vas_dao_Imp implements cg_sshe_vas_dao {
 		qry.setParameter("ecpid", cpid);
 		qry.setParameter("epassword", cppassword);
 		List<cg_sshe_vas_master> cp = qry.getResultList();
-		if (cp.get(0) == null)
+		if (cp.size()==0)
 			status = 0;
 		else
 			status = 1;
@@ -83,6 +83,10 @@ public class cg_sshe_vas_dao_Imp implements cg_sshe_vas_dao {
 		Query qry = em.createQuery(hql);
 		qry.setParameter("ecpid", cpid);
 		List<cg_sshe_vas_master> lst = qry.getResultList();
+		if(lst.size()==0)
+		{
+			return 0;
+		}
 		cg_sshe_vas_master ipobj = lst.get(0);
 		String ipstring = ipobj.getIp_list();
 		System.out.println(ipstring);

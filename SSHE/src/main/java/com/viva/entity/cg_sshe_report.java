@@ -1,11 +1,14 @@
 package com.viva.entity;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.servlet.http.HttpServletRequest;
 
 @Entity
 @Table(name=" cg_sshe_report")
@@ -27,7 +30,7 @@ public class cg_sshe_report {
 	@Column(name="ip",length=20)
 	private String ip;
 	@Column(name="request_datetime",length=25)
-	private String request_datetime;
+	private Timestamp request_datetime;
 	@Column(name="opcoid",columnDefinition="int(3)")
 	private int opcoid;
 	public int getId() {
@@ -54,6 +57,8 @@ public class cg_sshe_report {
 	public void setProduct_id(String product_id) {
 		this.product_id = product_id;
 	}
+	
+	
 	public String getResponse() {
 		return response;
 	}
@@ -72,11 +77,11 @@ public class cg_sshe_report {
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
-	public String getRequest_datetime() {
+	public Timestamp getRequest_datetime() {
 		return request_datetime;
 	}
-	public void setRequest_datetime(String request_datetime) {
-		this.request_datetime = request_datetime;
+	public void setRequest_datetime(Timestamp timestamp) {
+		this.request_datetime = timestamp;
 	}
 	public int getOpcoid() {
 		return opcoid;
@@ -84,6 +89,7 @@ public class cg_sshe_report {
 	public void setOpcoid(int opcoid) {
 		this.opcoid = opcoid;
 	}
+	
 	
 
 }

@@ -1,5 +1,6 @@
 package com.viva.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -61,6 +62,21 @@ public class cg_sshe_product_dao_Imp implements cg_sshe_product_dao {
 		// TODO Auto-generated method stub
 		em.persist(notify_url);
 		return 1;
+	}
+
+
+	@Override
+	public List<String> getProductIDByOpcoId(int opcoId) {
+		String hql = "from cg_sshe_product_master where opcoid=:eopcoid";
+		Query qry = em.createQuery(hql);
+		qry.setParameter("eopcoid", opcoId);
+		List<cg_sshe_product_master> lst = qry.getResultList();
+		List<String> productlist=new ArrayList<String>();
+		for(int i=0;i<lst.size();i++)
+		{
+			productlist.add(lst.get(i).getProduct_id());
+		}
+		return productlist;
 	}
 
 
