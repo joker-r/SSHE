@@ -3,6 +3,8 @@ package com.viva.web;
 
 import java.net.URISyntaxException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -25,9 +27,16 @@ public class FlowController {
 
 		return "Login";
 	}
+	@RequestMapping(value = "Logout")
+	public String logoutUser(HttpSession session,Model model) {
+	session.invalidate();
+		model.addAttribute("msg","Logout Successful");
+		return "Login";
+	}
 
 	@RequestMapping(value = "Login", method = RequestMethod.POST)
-	public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password,Model model) {
+	public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password,
+			HttpSession session,Model model) {
 		cg_sshe_user user = dao.getUser(username);
 		String page;
 		if (user == null) {
@@ -36,6 +45,7 @@ public class FlowController {
 			
 		} else {
 			if (user.getPassword().equals(password)) {
+				session.setAttribute("username",username);
 				int usertype = user.getUsertype();
 				if (usertype == 0) {
 					page = "AdminHome";
@@ -44,6 +54,7 @@ public class FlowController {
 				} else {
 					page = "Business";
 				}
+				
 			} else {
 				model.addAttribute("msg","Invalid Password");
 				return "Login";

@@ -3,7 +3,7 @@
 <div class="welcomeuser">
     <span id="welcome">Welcome Admin</span>
     <span id="logout" style="float: right;">
-        <a href="#logout">LOGOUT</a>
+        <a href="Logout">LOGOUT</a>
     </span>
 </div>
 

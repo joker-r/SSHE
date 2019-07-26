@@ -2,6 +2,8 @@ package com.viva.web;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -77,7 +79,12 @@ public class AddController {
 		 @RequestParam(value="txtcountry")String country,
 		 @RequestParam(value="txtoperator")String operator,
 		 @RequestParam(value="txtcircle")String circle,
-		 Model model) {
+		 Model model,HttpSession session) {
+	 if(session.getAttribute("username")==null)
+	 {
+		 model.addAttribute("msg","Invalid Request.Please Login");
+		 return "Login";
+	 }
 	  List<cg_sshe_vas_master> cg=dao.getCpById(cpid);
 	  if(cg.size()>=1)
 	  {
@@ -114,7 +121,12 @@ public class AddController {
 		 @RequestParam(value="txtoperator") String poperator,
 		 @RequestParam(value="txtcircle") String circle,
 		 @RequestParam(value="txturl") String url,
-		 Model model) {
+		 Model model,HttpSession session) {
+	 if(session.getAttribute("username")==null)
+	 {
+		 model.addAttribute("msg","Invalid Request.Please Login");
+		 return "Login";
+	 }
 	 List<cg_sshe_product_master> prod=dao2.getProductById(productid);
 	 if(prod.size()>=1)
 	 {

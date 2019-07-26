@@ -2,6 +2,8 @@ package com.viva.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -124,20 +126,35 @@ public class iFrameController {
 	 }
 	 
 	 @RequestMapping(value="getadduser")
-	 public String displayAdduser() {
+	 public String displayAdduser(Model model,HttpSession session) {
+		 if(session.getAttribute("username")==null)
+		 {
+			 model.addAttribute("msg","Invalid Request.Please Login");
+			 return "Login";
+		 }
 		 return "adduser";
 	 }
 	 
 	 
 	 @RequestMapping(value="getaddbusinessuser")
-	 public String displayAddbusinessuser(Model model) {
+	 public String displayAddbusinessuser(Model model,HttpSession session) {
+		 if(session.getAttribute("username")==null)
+		 {
+			 model.addAttribute("msg","Invalid Request.Please Login");
+			 return "Login";
+		 }
 		List<cg_sshe_tenant_details> clist=tenantdao.getCountry();
 		model.addAttribute("clist", clist);
 		 return "AddBusinessUser";
 	 }
 	 
 	 @RequestMapping(value="getaddproduct")
-	 public String displayAddproduct(Model model) {
+	 public String displayAddproduct(Model model,HttpSession session) {
+		 if(session.getAttribute("username")==null)
+		 {
+			 model.addAttribute("msg","Invalid Request.Please Login");
+			 return "Login";
+		 }
 		List<cg_sshe_tenant_details> clist=tenantdao.getCountry();
 		model.addAttribute("clist", clist);
 		 return "AddProduct";
@@ -145,7 +162,12 @@ public class iFrameController {
 
   
 	 @RequestMapping(value="getviewuser")
-	    public String displayviewuser(Model model) {
+	    public String displayviewuser(Model model,HttpSession session) {
+		 if(session.getAttribute("username")==null)
+		 {
+			 model.addAttribute("msg","Invalid Request.Please Login");
+			 return "Login";
+		 }
 			model.addAttribute("ulist", dao.getUser());
 		 return "ViewUser";
 		}
