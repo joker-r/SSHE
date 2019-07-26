@@ -1,5 +1,7 @@
 package com.viva.web;
 import java.sql.Timestamp;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +46,12 @@ public class AddController {
 		 @RequestParam(value="password")String password,
 		 @RequestParam(value="usertype")String usertype,
 		 Model model) {
+	 cg_sshe_user user1=dao4.getUser(username);
+	 if(user1!=null)
+	 {
+		 model.addAttribute("msg","Username Already Exists/Must Be Unique");
+		 return "ErrorPage";
+	 }
 	 cg_sshe_user user=new cg_sshe_user();
 	 int utype=0;
 	 if(usertype.equalsIgnoreCase("Techops"))
@@ -70,10 +78,23 @@ public class AddController {
 		 @RequestParam(value="txtoperator")String operator,
 		 @RequestParam(value="txtcircle")String circle,
 		 Model model) {
+	  List<cg_sshe_vas_master> cg=dao.getCpById(cpid);
+	  if(cg.size()>=1)
+	  {
+		  model.addAttribute("msg","CPID Already Exists");
+		  return "ErrorPage";
+	  }
+	 
 	 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	 cg_sshe_vas_master cp=new cg_sshe_vas_master();
 	 String tenantname=country+"_"+operator+"_"+circle;
 	 int opcoid=dao1.getTenantId(tenantname);
+	 cg_sshe_vas_master cg1=dao.getCpBOpcoId(opcoid);
+	 if(cg1!=null)
+	  {
+		  model.addAttribute("msg","CP Already Exists In OPCOID");
+		  return "ErrorPage";
+	  }
 	 cp.setOpcoid(opcoid);
 	 cp.setCpid(cpid);
 	 cp.setCpname(cpname);
@@ -94,6 +115,12 @@ public class AddController {
 		 @RequestParam(value="txtcircle") String circle,
 		 @RequestParam(value="txturl") String url,
 		 Model model) {
+	 List<cg_sshe_product_master> prod=dao2.getProductById(productid);
+	 if(prod.size()>=1)
+	 {
+		 model.addAttribute("msg","Product ID Already Exists");
+		  return "ErrorPage";
+	 }
 	     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	     String Opcoidvalue=pcountry+"_"+poperator+"_"+circle;
 	     int opcoid=dao1.getTenantId(Opcoidvalue);
@@ -104,7 +131,7 @@ public class AddController {
 	     product.setLast_modify_date(timestamp.toString());
 	     product.setOpcoid(opcoid);
 	     dao2.addProduct(product);
-	     int id_product=dao2.getProductById(productid).getId();
+	     int id_product=(dao2.getProductById(productid)).get(0).getId();
 	     int id_vas=dao.getCpBOpcoId(opcoid).getId();
 	     notify.setCpid(id_vas);
 	     notify.setProduct_id(id_product);

@@ -10,11 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
 
 import com.viva.dao.cg_sshe_user_dao;
 import com.viva.entity.cg_sshe_user;
-import com.viva.service.ImsiService;
+
 
 @Controller
 public class FlowController {
@@ -28,11 +27,13 @@ public class FlowController {
 	}
 
 	@RequestMapping(value = "Login", method = RequestMethod.POST)
-	public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password) {
+	public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password,Model model) {
 		cg_sshe_user user = dao.getUser(username);
 		String page;
 		if (user == null) {
+			model.addAttribute("msg","Invalid Username");
 			return "Login";
+			
 		} else {
 			if (user.getPassword().equals(password)) {
 				int usertype = user.getUsertype();
@@ -44,6 +45,7 @@ public class FlowController {
 					page = "Business";
 				}
 			} else {
+				model.addAttribute("msg","Invalid Password");
 				return "Login";
 			}
 		}
@@ -51,14 +53,6 @@ public class FlowController {
 		return page;
 	}
 	
-	@RequestMapping(value = "check")
-	public String check() throws URISyntaxException
-	{
-		String str="dfs";
-		ImsiService service=new ImsiService();
-		service.getImsiMsisdn(str);
-		return "Login";
-	}
 	
 	
 }

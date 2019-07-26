@@ -45,14 +45,14 @@ public class cg_sshe_product_dao_Imp implements cg_sshe_product_dao {
 
 
 	@Override
-	public cg_sshe_product_master getProductById(String product_id) {
+	public List<cg_sshe_product_master> getProductById(String product_id) {
 		// TODO Auto-generated method stub
 		String hql="from cg_sshe_product_master where product_id=:eproduct_id";
 		Query qry=em.createQuery(hql);
 		qry.setParameter("eproduct_id",product_id);
 		List<cg_sshe_product_master> lst=qry.getResultList();
-		cg_sshe_product_master product=lst.get(0);
-		return product;
+		
+		return lst;
 	}
 
 

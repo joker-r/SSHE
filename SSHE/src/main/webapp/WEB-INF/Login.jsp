@@ -58,6 +58,12 @@
                                                     &nbsp;<input class="btn btn-danger" type="submit" name="btnLogin" value="Login" id="btnLogin" class="LoginBtn">
                                                 </td>
                                             </tr>
+                                             <tr>
+                                                <td colspan="2" style="width: 100%; color: #FF0000;
+                                                    font-size: 26px; font-family: Segoe UI,arial; padding-bottom: 5px; margin-bottom: 20px;
+                                                    padding-left: 20px; text-align: center;">${msg}</td>
+                                               
+                                            </tr>
                                         </tbody>
 								        </table>
                                     </div>

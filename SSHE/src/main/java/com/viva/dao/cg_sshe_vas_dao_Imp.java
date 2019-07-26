@@ -41,14 +41,14 @@ public class cg_sshe_vas_dao_Imp implements cg_sshe_vas_dao {
 	}
 
 	@Override
-	public cg_sshe_vas_master getCpById(String cpid) {
+	public List<cg_sshe_vas_master> getCpById(String cpid) {
 		// TODO Auto-generated method stub
 		String hql = "from cg_sshe_vas_master where cpid=:ecpid";
 		Query qry = em.createQuery(hql);
 		qry.setParameter("ecpid", cpid);
 		List<cg_sshe_vas_master> lst = qry.getResultList();
-		cg_sshe_vas_master cp = lst.get(0);
-		return cp;
+		
+		return lst;
 	}
 
 	@Override

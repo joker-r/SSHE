@@ -11,5 +11,5 @@ public interface cg_sshe_product_dao {
 	public int addUrl(cg_sshe_notify_url_master notify_url);
 	public int editProduct(cg_sshe_product_master product);
 	public List<cg_sshe_product_master> getProduct(cg_sshe_vas_master cp);
-	public cg_sshe_product_master getProductById(String product_id);
+	public List<cg_sshe_product_master> getProductById(String product_id);
 }
