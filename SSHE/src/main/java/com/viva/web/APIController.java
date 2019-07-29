@@ -70,6 +70,7 @@ public class APIController {
 			Model model,
 			RedirectAttributes redirectAttributes
 			) {
+		
 		report=new cg_sshe_report();
 		Timestamp request_datetime = new Timestamp(System.currentTimeMillis());
 		

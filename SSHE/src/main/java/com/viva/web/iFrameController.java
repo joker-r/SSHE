@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 
+import com.viva.dao.cg_sshe_report_dao;
 import com.viva.dao.cg_sshe_tenant_dao;
 import com.viva.dao.cg_sshe_user_dao;
 import com.viva.dao.cg_sshe_vas_dao;
+import com.viva.entity.cg_sshe_report;
 import com.viva.entity.cg_sshe_tenant_details;
 import com.viva.entity.cg_sshe_vas_master;
 
@@ -29,6 +31,9 @@ public class iFrameController {
 	
 	@Autowired
 	private cg_sshe_vas_dao vasdao;
+	
+	@Autowired
+	private cg_sshe_report_dao reportdao;
 	
 	
 	
@@ -136,6 +141,18 @@ public class iFrameController {
 	 }
 	 
 	 
+	 @RequestMapping(value="EditBusinessUser")
+	 public String displayEditbusinessuser(Model model,HttpSession session) {
+		 if(session.getAttribute("username")==null)
+		 {
+			 model.addAttribute("msg","Invalid Request.Please Login");
+			 return "Login";
+		 }
+		List<cg_sshe_tenant_details> clist=tenantdao.getCountry();
+		model.addAttribute("clist", clist);
+		 return "EditBusinessUser";
+	 }
+	 
 	 @RequestMapping(value="getaddbusinessuser")
 	 public String displayAddbusinessuser(Model model,HttpSession session) {
 		 if(session.getAttribute("username")==null)
@@ -170,5 +187,28 @@ public class iFrameController {
 		 }
 			model.addAttribute("ulist", dao.getUser());
 		 return "ViewUser";
+		}
+	 @RequestMapping(value="ViewReport")
+	    public String displayReport(Model model,HttpSession session) {
+		 if(session.getAttribute("username")==null)
+		 {
+			 model.addAttribute("msg","Invalid Request.Please Login");
+			 return "Login";
+		 }
+		List<cg_sshe_report> reports= reportdao.generateReport(session.getAttribute("username").toString());
+		model.addAttribute("username", session.getAttribute("username").toString());
+		 model.addAttribute("rlist",reports);
+		/*
+		 * For Success and  fail reports
+		 * List<cg_sshe_report> successreports=
+		 * reportdao.generateSuccessReport(session.getAttribute("username").toString());
+		 * List<cg_sshe_report> failreports=
+		 * reportdao.generateFailReport(session.getAttribute("username").toString());
+		 * System.out.println(reports.get(0).getProduct_id());
+		 * System.out.println(""+reports.get(0).getStatus());
+		 * model.addAttribute("slist",successreports);
+		 * model.addAttribute("flist",failreports);
+		 */
+		 return "ViewReport";
 		}
 	}

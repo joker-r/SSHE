@@ -107,7 +107,12 @@ public class cg_sshe_vas_dao_Imp implements cg_sshe_vas_dao {
 		Query qry = em.createQuery(hql);
 		qry.setParameter("eopcoid", opcoid);
 		List<cg_sshe_vas_master> lst = qry.getResultList();
-		cg_sshe_vas_master cp = lst.get(0);
+		cg_sshe_vas_master cp=null;
+		if(lst.size()==0)
+		{
+			return cp;
+		}
+		cp = lst.get(0);
 		return cp;
 	}
 

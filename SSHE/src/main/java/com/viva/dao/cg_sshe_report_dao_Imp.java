@@ -1,6 +1,8 @@
 package com.viva.dao;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -32,14 +34,26 @@ public class cg_sshe_report_dao_Imp implements cg_sshe_report_dao{
 
 	@Override
 	public List<cg_sshe_report> generateReport(String cpid) {
+		System.out.println(cpid);
 		// TODO Auto-generated method stub
 		String hql="select distinct(product_id),count(status) from cg_sshe_report where cpid=:ecpid group by product_id";
 		Query qry=em.createQuery(hql);
 		qry.setParameter("ecpid", cpid);
-		List<cg_sshe_report> lst=qry.getResultList();
-		System.out.println(lst);
 		
-		return lst;
+		List<cg_sshe_report> lst=(List<cg_sshe_report>) qry.getResultList();
+		List<cg_sshe_report> result=new ArrayList<cg_sshe_report>();
+		Iterator itr = lst.iterator();
+		while(itr.hasNext()){
+			cg_sshe_report check=new cg_sshe_report();
+			   Object[] obj = (Object[]) itr.next();
+			   String productid = String.valueOf(obj[0]);
+			check.setProduct_id(productid);   
+			   Integer status = Integer.parseInt(String.valueOf(obj[1])); 
+			   check.setStatus(status);
+			   result.add(check);
+		}
+
+		return result;
 	}
 
 	@Override
@@ -49,9 +63,19 @@ public class cg_sshe_report_dao_Imp implements cg_sshe_report_dao{
 		Query qry=em.createQuery(hql);
 		qry.setParameter("ecpid", cpid);
 		List<cg_sshe_report> lst=qry.getResultList();
-		System.out.println(lst);
-		
-		return lst;
+		List<cg_sshe_report> result=new ArrayList<cg_sshe_report>();
+		Iterator itr = lst.iterator();
+		while(itr.hasNext()){
+			cg_sshe_report check=new cg_sshe_report();
+			   Object[] obj = (Object[]) itr.next();
+			   String productid = String.valueOf(obj[0]);
+			check.setProduct_id(productid);   
+			   Integer status = Integer.parseInt(String.valueOf(obj[1])); 
+			   check.setStatus(status);
+			   result.add(check);
+		}
+
+		return result;
 	}
 
 	@Override
@@ -60,9 +84,19 @@ public class cg_sshe_report_dao_Imp implements cg_sshe_report_dao{
 		Query qry=em.createQuery(hql);
 		qry.setParameter("ecpid", cpid);
 		List<cg_sshe_report> lst=qry.getResultList();
-		System.out.println(lst);
-		
-		return lst;
+		List<cg_sshe_report> result=new ArrayList<cg_sshe_report>();
+		Iterator itr = lst.iterator();
+		while(itr.hasNext()){
+			cg_sshe_report check=new cg_sshe_report();
+			   Object[] obj = (Object[]) itr.next();
+			   String productid = String.valueOf(obj[0]);
+			check.setProduct_id(productid);   
+			   Integer status = Integer.parseInt(String.valueOf(obj[1])); 
+			   check.setStatus(status);
+			   result.add(check);
+		}
+
+		return result;
 	}
 
 	

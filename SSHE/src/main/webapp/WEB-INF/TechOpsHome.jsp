@@ -50,7 +50,7 @@
     else
     {
     var dd3 = document.getElementById("adminframe");
-    dd3.innerHTML="<iframe src='EditBusinessUser.html' id='iframe3' frameborder='0'></iframe>";
+    dd3.innerHTML="<iframe src='EditBusinessUser' id='iframe3' frameborder='0'></iframe>";
     }
 
 

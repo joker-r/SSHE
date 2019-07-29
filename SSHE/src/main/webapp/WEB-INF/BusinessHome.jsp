@@ -3,7 +3,7 @@
 <div class="welcomeuser">
     <span id="welcome">Welcome ${username}</span>
     <span id="logout" style="float: right;">
-        <a href="#logout">LOGOUT</a>
+        <a href="Logout">LOGOUT</a>
     </span>
 </div>
 
@@ -37,7 +37,7 @@
     //console.log(ch);
 
     var dd1 = document.getElementById("adminframe");
-    dd1.innerHTML="<iframe src='ViewReports.html' id='iframe1' frameborder='0'></iframe>";
+    dd1.innerHTML="<iframe src='ViewReport' id='iframe1' frameborder='0'></iframe>";
    
   }
     

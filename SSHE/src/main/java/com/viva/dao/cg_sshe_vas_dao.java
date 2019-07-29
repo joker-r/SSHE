@@ -2,9 +2,7 @@ package com.viva.dao;
 
 import java.util.List;
 
-import com.viva.entity.cg_sshe_notify_url_master;
-import com.viva.entity.cg_sshe_product_master;
-import com.viva.entity.cg_sshe_user;
+
 import com.viva.entity.cg_sshe_vas_master;
 
 public interface cg_sshe_vas_dao {

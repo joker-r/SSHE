@@ -145,12 +145,16 @@ function getCircle(operator)
            		</select>
            	</td>
            </tr><br>
-           <tr><td>CP ID</td><td><input type="text" required name="txtcpid"></td></tr><br>
-           <tr><td>CP Name</td><td><input type="text" required name="txtcpname"></td></tr><br>
-           <tr><td>CP Password</td><td><input type="password" required name="txtpassword"></td></tr><br>
-           <tr><td>CP Status</td><td><input type="radio" required name="txtcpstatus"value="1" > Active     
+           <tr><td>CP ID</td><td><input type="text" pattern="^[a-zA-Z][a-zA-Z0-9]{2,9}$"
+						title="first character should be alphabet followed by 2-9 alphanumeric characters" required name="txtcpid"></td></tr><br>
+           <tr><td>CP Name</td><td><input type="text" pattern="^[a-zA-Z][a-zA-Z0-9]{2,9}$"
+						title="first character should be alphabet followed by 2-9 alphanumeric characters" required name="txtcpname"></td></tr><br>
+           <tr><td>CP Password</td><td><input type="password" pattern="^.{5,15}$"
+						title="min 5 and max 15 characters" required name="txtpassword"></td></tr><br>
+           <tr><td>CP Status</td><td><input type="radio" required name="txtcpstatus" value="1" > Active     
                     <input type="radio" required name="txtcpstatus" value="0"> Deactive</td></tr><br>
-           <tr><td>IP List</td><td><input type="text" required name="txtiplist"></td></tr><br>
+           <tr><td>IP List</td><td><input type="text" pattern="(((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([4-9]|[12][0-9]|3[0-2]))?)([,\s]+|$))*"
+						title="put IPs separated by ','" required name="txtiplist"></td></tr><br>
            <tr><td colspan="2"><input  type="submit" class="btn btn-danger" value="ADD"></td></tr>
         </tbody>
         </table>

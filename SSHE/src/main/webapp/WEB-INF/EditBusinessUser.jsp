@@ -197,8 +197,8 @@ function getCPID(circle)
             
             </td></tr><br>
            <br>
-           <tr><td>CP Status</td><td><input type="radio" required name="cpstatus" value="active" > Active   
-            <input type="radio" required name="cpstatus" value="deactive"> Deactive</td></tr><br>
+           <tr><td>CP Status</td><td><input type="radio" required name="txtcpstatus" value="1" > Active   
+            <input type="radio" required name="txtcpstatus" value="0"> Deactive</td></tr><br>
            <br>
             <tr><td colspan="2"><input type="submit" class="btn btn-danger" value="UPDATE"></td></tr>
         </tbody>

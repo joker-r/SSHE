@@ -115,9 +115,44 @@ public class AddController {
 	 cp.setLast_modify_date((timestamp).toString());
 	 cp.setIp_list(ip_list);
 	 dao.addCp(cp);
+	 cg_sshe_user user=new cg_sshe_user();
+	 user.setUsername(cpid);
+	 user.setPassword(password);
+	 user.setUsertype(2);
+	 dao4.addUser(user);
 	 model.addAttribute("msg","CP/SP added successfully");
 	 return "success";
  }
+ @RequestMapping(value="editbuser",method=RequestMethod.POST)
+ public String editCp(
+		 @RequestParam(value="txtcpid")String cpid,
+		 @RequestParam(value="txtcpstatus")boolean cp_status,
+		 @RequestParam(value="txtcountry")String country,
+		 @RequestParam(value="txtoperator")String operator,
+		 @RequestParam(value="txtcircle")String circle,
+		 Model model,HttpSession session) {
+	 if(session.getAttribute("username")==null)
+	 {
+		 model.addAttribute("msg","Invalid Request.Please Login");
+		 return "Login";
+	 }
+	  List<cg_sshe_vas_master> cg=dao.getCpById(cpid);
+	  cg_sshe_vas_master vas1=cg.get(0);
+	 cg_sshe_vas_master cp=new cg_sshe_vas_master();
+	 String tenantname=country+"_"+operator+"_"+circle;
+	 int opcoid=dao1.getTenantId(tenantname);
+	 cp.setId(vas1.getId());
+	 cp.setOpcoid(opcoid);
+	 cp.setCpid(cpid);
+	 cp.setCp_status(cp_status);
+	 cp.setCpname(vas1.getCpname());
+	 cp.setPassword(vas1.getPassword());
+	 cp.setIp_list(vas1.getIp_list());
+	 dao.editCp(cp);
+	 model.addAttribute("msg","CP/SP updated successfully");
+	 return "success";
+ }
+ 
  @RequestMapping(value="addProduct",method=RequestMethod.POST)
  public String addProduct(
 		 @RequestParam(value="txtproductid") String productid,

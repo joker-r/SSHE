@@ -52,7 +52,8 @@ public class FlowController {
 				} else if (usertype == 1) {
 					page = "TechOpsHome";
 				} else {
-					page = "Business";
+					page = "BusinessHome";
+				        model.addAttribute("username", username);
 				}
 				
 			} else {

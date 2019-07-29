@@ -7,6 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -205,13 +206,16 @@ function getCPID(circle)
            	</td>
             </tr><br>
            <tr><td>Product ID</td>
-            <td><input type="text" required name="txtproductid"></td>
+            <td><input type="text" pattern="^[a-zA-Z][a-zA-Z0-9]{2,9}$"
+						title="first character should be alphabet followed by 2-9 alphanumeric characters" required name="txtproductid"></td>
             </tr><br>
            <tr><td>Product Name</td>
-            <td><input type="text" required name="txtproductname"></td>
+            <td><input type="text" pattern="^[a-zA-Z][a-zA-Z0-9]{2,9}$"
+						title="first character should be alphabet followed by 2-9 alphanumeric characters" required name="txtproductname"></td>
             </tr><br>
            <tr><td>Notify URL</td>
-            <td><input type="text" required name="txturl"></td>
+            <td><input type="text" pattern="^https?:\/\/(.*)"
+						title="start with http:// or https://" required name="txturl"></td>
             </tr><br>
           
            <tr><td colspan="2"><input type="submit" class="btn btn-danger" value="ADD"></td></tr>
